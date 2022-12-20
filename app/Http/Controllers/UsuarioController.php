@@ -74,14 +74,11 @@ class UsuarioController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Usuario  $usuario
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Usuario $usuario)
+    public function destroy($id)
     {
-        //
+        $usuario=Usuario::find($id);
+        
+        $usuario->delete();
+        // return "hola $id";
     }
 }

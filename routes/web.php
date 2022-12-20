@@ -15,11 +15,11 @@ use App\Http\Controllers\UsuarioController;
 */
 
 Route::get('/', function () {
-    return view('usuarios.index');
+    return view('welcome');
 });
 
 
 
 
-
 Route::get('/usuarios', [UsuarioController::class, 'index'])->name('usuarios.index');
+Route::delete('/usuarios/{id}', [UsuarioController::class, 'destroy'])->name('usuarios.destroy');
