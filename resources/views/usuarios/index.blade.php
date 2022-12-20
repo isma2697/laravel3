@@ -1,4 +1,5 @@
 <x-layouts.app> 
+    <h1>Usuarios</h1>
     <table id="tabla" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
