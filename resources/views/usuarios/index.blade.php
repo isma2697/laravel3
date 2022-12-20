@@ -1,13 +1,22 @@
-<x-layouts.app>
-    {{-- Usuario: id, nombre(50), apellidos(50), f_nacimiento (date) --}}
-    <table>
-        <tr>
-            <th>Id</th>
-            <th>Nombre</th>
-            <th>Apellidos</th>
-            <th>F_nacimiento</th>
-        </tr>
-        for
-
+<x-layouts.app> 
+    <table id="tabla" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>#id</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($Usuarios as $usuario)
+            <tr>
+                <td>{{ $usuario->id }}</td>
+                <td>{{ $usuario->nombre }}</td>
+                <td>{{ $usuario->apellidos }}</td>
+                <td>{{ $usuario->f_nacimiento }}</td>
+            </tr>
+            @endforeach
+        </tbody>
     </table>
 </x-layouts.app>
