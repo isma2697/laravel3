@@ -1,5 +1,6 @@
 <x-layouts.app> 
     <h1>Usuarios</h1>
+    <a href="{{route('usuarios.restaurar')}}" class="btn btn-success btn_restaurar">Retaurar</a>
     <table id="tabla" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
@@ -18,7 +19,12 @@
                 <td>{{ $usuario->nombre }}</td>
                 <td>{{ $usuario->apellidos }}</td>
                 <td>{{ $usuario->f_nacimiento }}</td>
-                <td>edad usando carbon</td>
+                <td><?php
+                    $fecha = new DateTime($usuario->f_nacimiento);
+                    $hoy = new DateTime();
+                    $anos = $hoy->diff($fecha);
+                    echo $anos->y;
+                    ?></td>
                 <td><button class="btn btn-danger btn_borrar">Borrar</button></td>
             </tr>
             @endforeach

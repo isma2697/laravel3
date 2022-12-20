@@ -6,6 +6,8 @@ use App\Http\Requests\StoreUsuarioRequest;
 use App\Http\Requests\UpdateUsuarioRequest;
 use App\Models\Usuario;
 
+
+
 class UsuarioController extends Controller
 {
     /**
@@ -73,6 +75,15 @@ class UsuarioController extends Controller
     {
         //
     }
+
+    public function restaurar()
+    {
+        //  cambiar todos los usuarios con deleted_at diferente a null y poner los usuarios a null en la columna delete_at
+        Usuario::whereNotNull('deleted_at')->update(['deleted_at' => null]);
+        // dd('Usuarios restaurados');
+        return redirect()->route('usuarios.index');
+    }
+
 
     public function destroy($id)
     {
